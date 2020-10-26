@@ -1,0 +1,44 @@
+<div>
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <app-select
+      (fiterArgumentEmmit)="filerByChosenArgument($event)"
+    ></app-select>
+    <div *ngIf="data" class="list-container">
+      <div
+        *ngFor="let item of data | myFirstFilter: filterArguments"
+        class="item-container"
+        (coolCountry)="addCoolCountry($event)"
+      >
+        <div class="item">
+          <div><strong>Country</strong> : {{ item.name }}</div>
+          <div><strong>Capital</strong> : {{ item.capital }}</div>
+          <div><strong>Area </strong>: {{ item.area }} km<sup>2</sup></div>
+          <div><strong>Population</strong> : {{ item.population }} people</div>
+          <div class="flag-container">
+            <img [src]="item.flag" [alt]="item.name" class="flag-img" />
+          </div>
+          <div class="list-item-button-container">
+            <div>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="handleReadMore(item.alpha3Code)"
+              >
+                Read more
+              </button>
+            </div>
+            <div>
+              <app-delete
+                [selectedCountry]="item"
+                (deleteItem)="deleteCountry($event)"
+              ></app-delete>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

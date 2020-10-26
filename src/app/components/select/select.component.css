@@ -1,0 +1,6 @@
+.selectList {
+  list-style: none;
+}
+.selectList li {
+  margin: 0.3em;
+}

@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ countryInfo.name }}</mat-card-title>
+    <mat-card-subtitle>{{ countryInfo.capital }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="countryInfo.flag" [alt]="countryInfo.name" />
+  <mat-card-content>
+    <p>Domain : {{ countryInfo.topLevelDomain }}</p>
+    <p>Region : {{ countryInfo.region }}</p>
+    <p></p>
+    <p>Population : {{ countryInfo.population }}</p>
+    <p></p>
+    <div>
+      RegionalBlocs :
+      <div *ngFor="let regionalBloc of countryInfo.regionalBlocs">
+        <p>Acronym : {{ regionalBloc.acronym }}</p>
+        <p>Name : {{ regionalBloc.name }}</p>
+      </div>
+      <div *ngIf="countryInfo.regionalBlocs.length === 0">
+        No regional blocs
+      </div>
+    </div>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onClick()">menu</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,18 @@
+<div>
+  <input (click)="changeSelect()" [value]="selectFilter" />
+</div>
+<div *ngIf="isDropdownOpen">
+  <ul class="selectList">
+    <li *ngFor="let selectItem of arrayOfFilters">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="
+          filter(selectItem.type, selectItem.value, selectItem.messageText)
+        "
+      >
+        {{ selectItem.messageText }}
+      </button>
+    </li>
+  </ul>
+</div>
