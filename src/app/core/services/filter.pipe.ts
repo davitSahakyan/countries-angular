@@ -9,13 +9,11 @@ export class FilterPipe implements PipeTransform {
     if (!items || !filterArgument) {
       return items;
     }
-    if (filterArgument.population) {
-      return items.filter(
-        (item) => item.population > filterArgument.population
-      );
+    if (filterArgument.type === 'population') {
+      return items.filter((item) => item.population > filterArgument.value);
     }
-    if (filterArgument.area) {
-      return items.filter((item) => item.area > filterArgument.area);
+    if (filterArgument.type === 'area') {
+      return items.filter((item) => item.area > filterArgument.value);
     }
     return items;
   }

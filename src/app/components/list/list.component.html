@@ -4,7 +4,14 @@
   </div>
   <div *ngIf="!loading">
     <app-select
-      (fiterArgumentEmmit)="filerByChosenArgument($event)"
+      (selectedItemEmmit)="onSelectChange($event, 'filter')"
+      [selectItems]="selectFilterItems"
+      [defaultSelectedItem]="defaultSelectedFilterItem"
+    ></app-select>
+    <app-select
+      (selectedItemEmmit)="onSelectChange($event, 'language')"
+      [selectItems]="selectLanguageItems"
+      [defaultSelectedItem]="defaultSelectedLanguage"
     ></app-select>
     <div *ngIf="data" class="list-container">
       <div
@@ -27,7 +34,7 @@
                 color="primary"
                 (click)="handleReadMore(item.alpha3Code)"
               >
-                Read more
+                {{ "readMore" | translate }}
               </button>
             </div>
             <div>

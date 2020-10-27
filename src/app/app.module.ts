@@ -1,3 +1,4 @@
+import { TranslatePipe } from './core/services/translate.pipe';
 import { FilterPipe } from './core/services/filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AppComponent,
     ListComponent,
     FilterPipe,
+    TranslatePipe,
     CountryComponent,
     DeleteComponent,
     SelectComponent,
